@@ -1,0 +1,37 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 18
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18.15.0
+    - name: Install Dependencies client
+      run: |
+          cd ./projectnumer
+          npm ci
+    - name: Install Dependencies server
+      run: |
+          cd ./server
+          npm ci
+    - name: Test Frontend
+      run: |
+          cd ./projectnumer
+          npm test
+    - name: Test Backend
+      run: |
+          cd ./server
+          npm test
+    - name: Build Docker Image
+      run: docker-compose build
