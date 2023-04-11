@@ -16,13 +16,13 @@ jobs:
     - name: Use Node.js 18
       uses: actions/setup-node@v2
       with:
-        image: node:18-alpine
         node-version: 18.15.0
-        cache: 'npm'
-    - name: Install Dependencies
+    - name: Install Dependencies client
       run: |
           cd ./projectnumer
           npm ci
+    - name: Install Dependencies server
+      run: |
           cd ./server
           npm ci
     - name: Test Frontend
