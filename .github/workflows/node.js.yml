@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 18
       uses: actions/setup-node@v2
       with:
         node-version: 18
@@ -22,7 +22,7 @@ jobs:
       run: |
           cd ./projectnumer
           npm ci
-          cd ../server
+          cd ./server
           npm ci
     - name: Test Frontend
       run: |
