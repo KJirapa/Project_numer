@@ -36,6 +36,6 @@ jobs:
               cd ./server
               npm test
     - name: docker
-        - run:docker-compose build
+        - run: docker-compose build
             
     
