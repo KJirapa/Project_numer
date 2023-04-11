@@ -30,7 +30,7 @@ services:
     # links:
     #   - db
   frontend:
-    build: ./projectnumer
+    build: ./projectnumer/src
     ports:
      - "3000:3000"
     depends_on:
