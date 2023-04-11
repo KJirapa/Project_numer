@@ -4,7 +4,7 @@ FROM node:16-alpine
 # set working directory
 WORKDIR /app
 
-COPY package.json ./
+COPY package*.json ./
 
 RUN npm ci
 COPY . .
