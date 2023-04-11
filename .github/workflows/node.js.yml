@@ -22,20 +22,20 @@ jobs:
         node-version: 18
         cache: 'npm'
     - name: npm i
-        - run:|
-              cd ./projectnumer
-              npm install
-              cd ./server
-              npm install
+      run: |
+          cd ./projectnumer
+          npm install
+          cd ./server
+          npm install
     - name: test frontend
-        - run:|
-              cd ./projectnumer
-              npm test
+      run: |
+          cd ./projectnumer
+          npm test
     - name: test backend
-        - run:|
-              cd ./server
-              npm test
+      run: |
+          cd ./server
+          npm test
     - name: docker
-        - run:docker-compose build
+      run: docker-compose build
             
     
